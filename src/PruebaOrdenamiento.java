@@ -98,6 +98,66 @@ class MetodosOrdenamiento{
 		
 		return arreglo;
 	}
+	
+	public void ordenamientoMezclaDirecto1(int arreglo[]) {
+		int i,j,k;
+		contador[2]++;
+		if(arreglo.length>1) {
+			int numElementosIzq=arreglo.length/2;
+			int numElmentosDer=arreglo.length-numElementosIzq;
+			
+			int arregloIzquierdo[]=new int[numElementosIzq];
+			int arregloDerecha[]=new int[numElmentosDer];
+			
+			for(i=0;i<numElementosIzq;i++) {
+				arregloIzquierdo[i]=arreglo[i];
+				contador[0]++;
+			}
+			
+			i=0;
+			for(i=numElementosIzq;i<numElementosIzq+numElmentosDer;i++) {
+				arregloDerecha[i-numElementosIzq]=arreglo[i];
+				contador[0]++;
+			}
+			
+			arregloIzquierdo=ordenamientoMezclaDirecto(arregloIzquierdo);
+			arregloDerecha=ordenamientoMezclaDirecto(arregloDerecha);
+			i=j=k=0;
+			
+			while(arregloIzquierdo.length!=j && arregloDerecha.length!=k) {
+				contador[2]++;
+				if(arregloIzquierdo[j]<arregloDerecha[k]) {
+					contador[1]++;
+					arreglo[i]=arregloIzquierdo[j];
+					i++;
+					j++;
+				}else {
+					contador[1]++;
+					arreglo[i]=arregloDerecha[k];
+					i++;
+					k++;
+				}
+				contador[0]++;
+			}
+			
+			while(arregloIzquierdo.length!=j) {
+				contador[1]++;
+				arreglo[i]=arregloIzquierdo[j];
+				i++;
+				j++;
+				contador[0]++;
+			}
+			
+			while(arregloDerecha.length!=k) {
+				contador[1]++;
+				arreglo[i]=arregloDerecha[k];
+				i++;
+				k++;
+				contador[0]++;
+			}
+		}
+		
+	}
 }
 
 public class PruebaOrdenamiento {
