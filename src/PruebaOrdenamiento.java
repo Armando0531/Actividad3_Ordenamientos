@@ -158,6 +158,44 @@ class MetodosOrdenamiento{
 		}
 		
 	}
+	
+	public void ordenamientoMezclaNatural(int [] numeros) {
+		int izquierda =0;
+		int izq =0;
+		int derecha = numeros.length-1;
+		int der = derecha;
+		boolean ordenado = false;
+		
+		long ini = System.nanoTime();
+		do {
+			ordenado = true;
+			izquierda = 0;
+			while(izquierda<derecha) {
+				izq =izquierda;
+				while(izq < derecha && numeros[izq]<=numeros[izq+1]) {
+					izq++;
+					contador[0]++;
+				}
+				der = izq +1;
+				while(der==derecha-1 || der<derecha && numeros[der]<=numeros[der+1]) {
+					der++;
+					contador[0]++;
+				}
+				contador[2]++;
+				if(der<=derecha) {
+					ordenamientoMezclaDirecto1(numeros);
+					
+					ordenado = false;
+				}
+				izquierda=izq;
+				contador[0]++;
+			}
+			contador[0]++;
+		}while(!ordenado);
+		
+		
+	
+	}
 }
 
 public class PruebaOrdenamiento {
