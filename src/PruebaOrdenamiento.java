@@ -201,7 +201,7 @@ class MetodosOrdenamiento{
 	}
 }
 
-class pruebasEstres{
+class PruebasEstres{
 	
 	public void pruebaEstres(String op) {
 		int vector1000elementos[]=new int[1000];
@@ -297,7 +297,45 @@ class pruebasEstres{
 public class PruebaOrdenamiento {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		Scanner entrada=new Scanner(System.in);
+		String op="";
+		boolean bandera=false;
+		PruebasEstres pruebas=new PruebasEstres();
+		while(bandera==false) {
+		long tTnicio,tFin;
+		System.out.println("Con que quieres probar?");
+		System.out.println("1-> Ordenar elementos precargados");
+		System.out.println("2-> Ordenar 1000 elementos");
+		System.out.println("3-> Ordenar 10000");
+		System.out.println("4-> Ordenar 100000");
+		System.out.println("5-> Ordenar 1000000");
+		System.out.println("6-> Salir");
+		op=entrada.nextLine();
+		switch (op) {
+		case "1":
+			pruebas.pruebaEstres(op);
+			break;
+		case "2":
+			pruebas.pruebaEstres(op);
+			break;
+		case "3":
+			pruebas.pruebaEstres(op);
+			break;
+		case "4":
+			pruebas.pruebaEstres(op);
+			break;
+		case "5":
+			pruebas.pruebaEstres(op);
+			break;
+		case "6":
+			System.out.println("Saliendo");
+			bandera=true;
+			break;
+		default:
+			break;
+		}
+		}
 
 	}
 
